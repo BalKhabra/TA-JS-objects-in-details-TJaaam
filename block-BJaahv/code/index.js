@@ -1,115 +1,118 @@
-function createUser(name, id,  noOfProperties){
+function createUser(name, id,  noOfProjects){
     let user = {};
     user.name = name;
     user.id = id;
-    user.noOfProperties = noOfProperties
+    user.noOfProjects = noOfProjects
         this.getProjects = function(){
-            this.score = this.score + value;
-            return this.score;
+            return this.noOfProjects
         };
         this.changeName = function(newName){
-            this.name = name;
-            return this.name;
+            let prevName = user.name
+            this.name = newName;
+            return prevname;
         };
         this.incrementProject = function(){
-            this.noOfProperties = this.noOfProperties + value;
-            return this.noOfPropertiescore;
-        }
+            this.noOfProjects += 1;
+            return this.noOfProjects;
+        };
         this.decrementProject = function(){
-            this.noOfProperties = this.noOfProperties - value;
-            return this.noOfPropertiescore;
-            }
-
+            this.noOfProjects -= 1;
+            return this.noOfProjects;
+        };
+        return user;
 }
+
+let sam = createUser ("sam", 123, 23)
+let cam = createUser ("cam", 321, 32)
+console.log(sam.name);
+console.log(aman.id);
 
 
 //prototypal patterns
 let userMetods = {
     getProjects: function(){
-            this.score = this.score + value;
-            return this.score;
+            return this.noOfProjects
         },
     changeName: function(newName){
+            let prevName = user.name
             this.name = newName;
-            return this.name;
+            return prevname;
         },
     incrementProject: function(){
-            this.noOfProperties = this.noOfProperties + value;
-            return this.noOfPropertiescore;
+            this.noOfProjects += 1;
+            return this.noOfProjects;
         },
     decrementProject: function(){
-            this.noOfProperties = this.noOfProperties - value;
-            return this.noOfPropertiescore;
+            this.noOfProjects -= 1;
+            return this.noOfProjects;
             }
 }
 
-function createUser (name, id,  noOfProperties){
-    let user = Object.create(userMethods.prototype);
-    let user = {};
-    user.name = name;
-    user.id = id;
-    user.noOfProperties = noOfProperties
-    return user;
+function createUser (name, id,  noOfProjects){
+    let this = Object.create(thisMethods.prototype);
+    this.name = name;
+    this.id = id;
+    this.noOfProjects = noOfProjects
+    return this;
 }
 //psuedoclassical pattern
 
-let questionMethods = {
-    getProjects: function(){
-            this.score = this.score + value;
-            return this.score;
-        },
-    changeName: function(newName){
-            this.name = newName;
-            return this.name;
-        },
-    incrementProject: function(){
-            this.noOfProperties = this.noOfProperties + value;
-            return this.noOfPropertiescore;
-        },
-    decrementProject: function(){
-            this.noOfProperties = this.noOfProperties - value;
-            return this.noOfPropertiescore;
-            }
+function CreateUser (name, id,  noOfProjects){
+    this.name = name;
+    this.id = id;
+    this.noOfProjects = noOfProjects
 }
+
+CreateUser.prototype = {
+    getProjects: function(){
+        return this.noOfProjects
+    },
+    changeName: function(newName){
+        let prevName = user.name
+        this.name = newName;
+        return prevname;
+    },
+    incrementProject: function(){
+        this.noOfProjects += 1;
+        return this.noOfProjects;
+    },
+    decrementProject: function(){
+        this.noOfProjects -= 1;
+        return this.noOfProjects;
+        }
+}
+
+let sam = new CreateUser ("sam", 123, 23)
+let cam = new CreateUser ("cam", 321, 32)
+console.log(sam.name);
+console.log(aman.id);
 
 // class pattern
 
-class User {
-    constructor (name, id,  noOfProperties){
-        this.name = name;
-        this.id = id;
-        this.noOfProperties = noOfProperties
+class CreateUser {
+    constructor (name, id,  noOfProjects){
+        return this.noOfProjects
     }
     getProjects(){
         this.score = this.score + value;
         return this.score;
     }
     changeName(newName){
+        let prevName = user.name
         this.name = newName;
-        return this.name;
+        return prevname;
     }
     incrementProject(){
-        this.noOfProperties = this.noOfProperties + value;
-        return this.noOfPropertiescore;
+        this.noOfProjects += 1;
+        return this.noOfProjects;
     }
     decrementProject(){
-        this.noOfProperties = this.noOfProperties - value;
-        return this.noOfPropertiescore;
+        this.noOfProjects -= 1;
+        return this.noOfProjects;
         }
 
 }
 
 
-class User {
-    constructor (title, options, correctAnswerIndex = 0){
-        this.title = title;
-        this.options = options;
-        this.correctAnswerIndex = correctAnswerIndex;
-    }
-    isAnswerCorrect(index){
-        return index === this.correctAnswerIndex;
-        }
-    getCorrectAnswer(){
-        return this.options[this.correctAnswerIndex]
-        }
-}
+let sam = new CreateUser ("sam", 123, 23)
+let cam = new CreateUser ("cam", 321, 32)
