@@ -4,6 +4,7 @@
 
 - Add a method named `description` that will alert a message saying `The square is ${width} x ${height}`
 
+
 - Create another method named `calcArea` that will return the area of the square.
 
 - Create a getter method named `area` that will return area of the square.
@@ -21,6 +22,7 @@
 ## User Class
 
 - Create a class named `User` that accepts `firstName` and `lastName` property
+
 
 - Create a getter method named `fullName` that will return the full name of the person.
 
