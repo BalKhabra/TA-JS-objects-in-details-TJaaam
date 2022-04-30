@@ -49,7 +49,6 @@ let userMetods = {
 }
 
 function createUser (name, id,  noOfProjects){
-    let this = Object.create(thisMethods.prototype);
     this.name = name;
     this.id = id;
     this.noOfProjects = noOfProjects
