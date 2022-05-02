@@ -1,37 +1,75 @@
 
 
-let animalmethods = {
-    constructor (location, numberOfLegs){
-    this.location = location;
-    this.numberOfLegs = numberOfLegs;
-},
+let animalMethods = {
     eat: function(){
-    console.log `I live in ${location} and I can eat`;
+    console.log (`I live in ${location} and I can eat`);
 },
     changeLocation: function(newLocation){
-    return `${newLocation}`
+        this.location= newLocation
+        return this.location
 },
     summary: function(){
-    `I live in ${location} and I have ${numberOfLegs}`
+    console.log(`I live in ${location} and I have ${numberOfLegs}`);
 }
 }
 
 
-let dog = {
-    constructor (name, color){
-    this.name = name;
-    this.color = color
-    },
+
+function createAnimal (location, numberOfLegs){
+    let obj = object.create(animalMethods);
+    obj.location = location;
+    obj.numberOfLegs = numberOfLegs;
+    return obj;
+}
+function createDog (name, color){
+    let obj = createAnimal(location, numberOfLegs);
+    object.setPrototype(obj, dogMethod);
+    obj.name = name;
+    obj.color = color;
+    return obj;
+}
+
+function createCat (name, colorOfEyes){
+    let obj = createAnimal(location, numberOfLegs);
+    obj.name = name;
+    obj.colorOfEyes = colorOfEyes;
+    return obj;
+}
+
+
+
+let dogMethod = {
     bark: function(name){
-        alert `I am ${name} and I can bark 🐶`
+        alert `I am ${this.name} and I can bark 🐶`
     },
-    changeName(newName){
-
+    changeName: function(newName){
+        this.name = newName
+        return this.name
     },
-    changeColor(newcolor){
-
+    changeColor: function (newColor){
+        this.color = newColor
+        return this.color
     },
-    summary(color){
-        return `I am ${dog} and I am of ${color} color. I can also bark`
+    summary: function (name, color){
+        return `I am ${this.name} and I am of ${this.color} color. I can also bark`
     }
-}
+};
+object.setPrototypeOf(dogMethod, animalMethods)
+
+let catMethod = {
+    meow: function(name){
+        alert `I am ${this.name} and I can  meow 😹`;
+    },
+    changeName: function(newName){
+        this.name = newName
+        return this.name
+        },
+    changeColorOfEyes: function (newColor){
+        this.color = newColor
+        return this.color
+        },
+    summary: function (name, colorOfEyes){
+        return `I am ${this.name} and the color of my eyes are ${this.colorOfEyes}. I can also meow`
+        }
+};
+object.setPrototypeOf(catMethod, animalMethods)
