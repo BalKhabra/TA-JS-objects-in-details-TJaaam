@@ -15,6 +15,7 @@ Create a function that accepts two inputs (name and age) and returns an object. 
 
 Inside `personStore` object, create a property `greet` where the value is a function that logs "hello".
 
+
 #### Challenge 2/3
 
 Create a function `personFromPersonStore` that takes as input a `name` and an `age`. When called, the function will create person objects using the `Object.create` method on the `personStore` object. And return the object with age and name.
