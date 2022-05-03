@@ -31,17 +31,3 @@ Book class will have the following methods:
 After creating the Book and BookList class create 5 book object and add it to list. Test all the methods in Book and BookList class.
 
 
-add([Book]){
-    this.book.push(elm)
-    return this.book
-}
-getCurrentBook(){
-    return 
-}
-getPrevBook(){
-    return 
-}
-changeCurrentBook(){
-    return this.stack.length;
-
-}
