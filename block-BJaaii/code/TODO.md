@@ -10,28 +10,6 @@ Queue
 
 1. Create a class name `Stack` with the following data and methods. Also implement a `length` getter method.
 
-```js
-class Stack {
-    push(){
-        
-    }
-    pop(){
-        elm.pop()
-    }
-    peek(){
-
-    }
-    revere(){
-
-    }
-    isEmpty(){
-
-    }
-    displayStack(){
-        return ("")
-    }
-}
-```
 
 Data:
 
@@ -71,26 +49,6 @@ console.log(myStack.isEmpty()); // true
 
 2. Create a class name `Queue` with the following data and methods. Also implement a `length` getter method.
 
-```js
-
-class Queue{
-    enqueue(){
-
-    }
-    dequeue(){
-        
-    }
-    peek(){
-        
-    }
-    isEmpty(){
-        
-    }
-    displayQueue(){
-        return ("");
-    }
-}
-```
 Data:
 
 - `queue`
