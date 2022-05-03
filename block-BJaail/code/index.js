@@ -1,47 +1,70 @@
+
+// let book1 = new Book ("Wuthering Heights", "Fiction", "Emile Bronte");
+// let book2 = new Book ("Pride and Prejudice", "Fiction", "Jane Austen");
+// let book3 = new Book ("Othello", "Fiction", "William Shakespeare");
+
 class BookList {
-    constructor(){
-        this.books = [];
-        this.currentIndexBook = 0;
+    constructor(root, library = []) {
+      this.library = library;
+      this.root = root;
     }
-    add(books = []){
-        this.books.push(books)
-        return this.books
+    add(name, author, isbn) {
+      let book = new Book(name, author, isbn);
+      this.library.push(book);
+      this.createUI();
     }
-    getCurrentBook(){
-        return this.books[this.currentIndexBook];
+    delete(id) {
+      let index = this.library.findIndex((book) => book.id === id);
+      this.library.splice(index, 1);
+      this.createUI();
     }
-    getNextBook(){
-        this.currentIndexBook = this.currentIndexBook + 1
-        return this.books[this.currentIndexBook];
+    createUI() {
+      this.root.innerHTML = "";
+      this.library.forEach((book) => {
+        let ui = book.createUI();
+        ui.querySelector(".delete").addEventListener(
+          "click",
+          this.delete.bind(this, book.id)
+        );
+        this.root.append(ui);
+      });
     }
-    getPrevBook(){
-        this.currentIndexBook = this.currentIndexBook - 1
-        return this.books[this.currentIndexBook];
+  }
+  
+  class Book {
+    constructor(name, author, isbn) {
+      this.name = name;
+      this.author = author;
+      this.isbn = isbn;
+      this.id = Date.now();
     }
-    changeCurrentBook(index){
-        this.currentIndexBook = index;
+  
+    createUI() {
+      let tr = document.createElement("tr");
+      let name = document.createElement("td");
+      name.innerText = this.name;
+      let author = document.createElement("td");
+      author.innerText = this.author;
+      let isbn = document.createElement("td");
+      isbn.innerText = this.isbn;
+      let td = document.createElement("td");
+      td.innerText = "❌";
+      td.setAttribute("class", "delete");
+      tr.append(name, author, isbn, td);
+      return tr;
     }
-};
-
-
-class Book {
-    constructor(title, category, author){
-        this.title = title;
-        this.category = category;
-        this.author = author;
-        this.isRead = false;
-        this.finishedDate = null;
-    }
-    markBookAsRead(){
-        this.isRead = true;
-    }
-
-};
-
-
-let book1 = new Book ("Wuthering Heights", "Fiction", "Emile Bronte");
-let book2 = new Book ("Pride and Prejudice", "Fiction", "Jane Austen");
-let book3 = new Book ("Othello", "Fiction", "William Shakespeare");
-
-letlibrary = new BookList();
-librayr.add([book1, book2, book3]);
+  }
+  
+  let lib = new BookList(document.querySelector("tbody"));
+  
+  function handleSubmit(e) {
+    e.preventDefault();
+    let bookName = e.target.elements.name.value;
+    let author = e.target.elements.author.value;
+    let isbn = e.target.elements.isbn.value;
+    lib.add(bookName, author, isbn);
+    e.target.reset();
+  }
+  
+  let form = document.querySelector("form");
+  form.addEventListener("submit", handleSubmit);
